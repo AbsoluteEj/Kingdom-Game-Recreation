@@ -50,9 +50,52 @@ namespace Kingdom_Game_Recreation
             {
                 day++;
                 // DAY-SPECIFIC EVENTS
-                if (day == )
+                if (day == 7)
                 {
-
+                    Console.WriteLine("LUCKY SEVEN! Day 7: Money, Population, and Happiness is increased by 77!");
+                    money += 77;
+                    happiness += 77;
+                    population += 77;
+                }
+                if (day == 15)
+                {
+                    Console.WriteLine("A Civil War has caused the kingdom some conflict!");
+                    Console.WriteLine("Money is decreased by 100, Population is decreased by 20, Happiness is decreased by 50");
+                    money -= 100;
+                    population -= 20;
+                    happiness -= 50;
+                }
+                if (day == 21)
+                {
+                    Console.WriteLine("Another kingdom emerges. Beware.");
+                    Console.WriteLine("Money is increased by 70, Population is increased by 70, and Happiness is increased by 70");
+                    money += 70;
+                    population += 70;
+                    happiness += 70;
+                }
+                if (day == 30)
+                {
+                    Console.WriteLine("Businesses are rising and advancing successfully. Everyone rejoiced! Of course you will too!");
+                    Console.WriteLine("Money is increased by 150, Population is increased by 20, Happiness is increased by 70");
+                    money += 150;
+                    population += 20;
+                    happiness += 70;
+                }
+                if (day == 43) // can introduce new features eyyyyyyy goooooood
+                {
+                    Console.WriteLine("Another kingdom sets its eyes to invade your kingdom. For the best case scenario, start advancing your best weapons.");
+                    Console.WriteLine("PREPARE FOR WAR.");
+                    Console.WriteLine("Population is increased by 100 and Happiness is decreased by 150");
+                    Console.WriteLine("If Happiness is less than 150: Happiness is increased by 100, Money is increased by 7");
+                    // can add new effects
+                    population += 100;
+                    happiness -= 150;
+                    // condition
+                    if (happiness <= 150)
+                    {
+                        happiness += 100;
+                        money += 7;
+                    }
                 }
 
                 // Check winning conditions/game conditions
