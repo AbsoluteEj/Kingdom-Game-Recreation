@@ -17,22 +17,13 @@ namespace Kingdom_Game_Recreation
             // can add functionality like if statements to start game
             Console.WriteLine("Enter any key to Start your Kingdom Game! Let's see what you got.");
 
-            // GAME Choices UI - can be encapsulated in a method for getting input
-            Console.WriteLine("Enter ");
-            Console.WriteLine("A. Host a Banquet");
-            Console.WriteLine("B. Create Jobs");
-            Console.WriteLine("C. Hold a Festival");
-            Console.WriteLine("D. Collect Emergency Taxes");
-            Console.WriteLine("E. End Current Day");
-
-            // Get user input (can create method)
-            string input = Console.ReadLine();
-
             // CHOICES or OPTION METHODS
             int money = 100;
             int happiness = 20;
             int population = 20;
             int day = 1;
+            bool isFinished = false;
+            string gameCondition = "";
 
             void HostBanquet()
             {
@@ -58,19 +49,64 @@ namespace Kingdom_Game_Recreation
             void EndDay()
             {
                 day++;
-                // Check winning conditions
-                // if ()
+                // DAY-SPECIFIC EVENTS
+                /*if (day == )*/
+
+                // Check winning conditions/game conditions
+                if (population == 2000)
+                {
+                    Console.WriteLine("YOU WIN! Your KINGDOM rose to the TOP!");
+                    gameCondition = "W";
+                }
             }
 
-            // CONDITIONAL FLOW LOGIC
-             if (input.ToUpper() == "A")
+            // GAME LOOP 
+
+            while (isFinished == false)
             {
-                HostBanquet();
+                // GAME Choices UI - can be encapsulated in a method for getting input
+                Console.WriteLine("Enter ");
+                Console.WriteLine("A. Host a Banquet");
+                Console.WriteLine("B. Create Jobs");
+                Console.WriteLine("C. Hold a Festival");
+                Console.WriteLine("D. Collect Emergency Taxes");
+                Console.WriteLine("E. End Current Day");
 
+                // Get user input (can create method)
+                string input = Console.ReadLine();
+                // CONDITIONAL FLOW LOGIC
+                if (input.ToUpper() == "A")
+                {
+                    HostBanquet();
+                }
+                else if (input.ToUpper() == "B")
+                {
+                    CreateJobs();
+                }
+                else if (input.ToUpper() == "C")
+                {
+                    HoldFestival();
+                }
+                else if (input.ToUpper() == "D")
+                {
+                    CollectTax();
+                }    
+                else if (input.ToUpper() == "E")
+                {
+                    EndDay();
+                    if (gameCondition == "W")
+                    {
+                        isFinished = true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input");
+                }
             }
 
-            // DAY-SPECIFIC EVENTS
-            /*if (day == )*/
+            // END LOOP
+            
         }
     }
 }
