@@ -15,7 +15,7 @@ namespace Kingdom_Game_Recreation
             Console.WriteLine("** [NOTE] If either one of the following: happiness, money, or population drops to 0 or less than 0, it is GAME OVER!");
             Console.WriteLine("Watch out for day-specific events along your journey!\n");
             // can add functionality like if statements to start game
-            Console.WriteLine("Enter any key to Start your Kingdom Game! Let's see what you got.");
+            Console.WriteLine("Enter any key to Start your Kingdom Game! Let's see what you got.\n");
 
             // CHOICES or OPTION METHODS
             int money = 100;
@@ -25,6 +25,7 @@ namespace Kingdom_Game_Recreation
             bool isFinished = false;
             string gameCondition = "";
 
+            // Methods (Add more details like Console.WriteLine(); each method)
             void HostBanquet()
             {
                 money -= 200;
@@ -48,7 +49,6 @@ namespace Kingdom_Game_Recreation
             }
             void EndDay()
             {
-                day++;
                 // DAY-SPECIFIC EVENTS
                 if (day == 7)
                 {
@@ -118,12 +118,16 @@ namespace Kingdom_Game_Recreation
             while (isFinished == false)
             {
                 // GAME Choices UI - can be encapsulated in a method for getting input
-                Console.WriteLine("Enter ");
+                Console.WriteLine($"\nYou are at Day {day}");
+                Console.WriteLine($"Money: {money}");
+                Console.WriteLine($"Population: {population}");
+                Console.WriteLine($"happiness: {happiness}\n");
+                Console.WriteLine("Enter your move:");
                 Console.WriteLine("A. Host a Banquet");
                 Console.WriteLine("B. Create Jobs");
                 Console.WriteLine("C. Hold a Festival");
                 Console.WriteLine("D. Collect Emergency Taxes");
-                Console.WriteLine("E. End Current Day");
+                Console.WriteLine("E. End Current Day\n");
 
                 // Get user input (can create method)
                 string input = Console.ReadLine();
@@ -151,6 +155,7 @@ namespace Kingdom_Game_Recreation
                     {
                         isFinished = true; // exits loop
                     }
+                    day++;
                 }
                 else
                 {
