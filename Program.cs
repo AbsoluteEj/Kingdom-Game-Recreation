@@ -12,7 +12,7 @@ namespace Kingdom_Game_Recreation
             Console.WriteLine("** Winning Conditions:");
             Console.WriteLine("  - Population is greater than 2000 ");
             Console.WriteLine("  - Money is greater than 6000 and Population is greater than 1000");
-            Console.WriteLine("** [NOTE] If happiness or money drops to 0 or less than 0, it is GAME OVER!");
+            Console.WriteLine("** [NOTE] If either one of the following: happiness, money, or population drops to 0 or less than 0, it is GAME OVER!");
             Console.WriteLine("Watch out for day-specific events along your journey!\n");
             // can add functionality like if statements to start game
             Console.WriteLine("Enter any key to Start your Kingdom Game! Let's see what you got.");
@@ -50,12 +50,22 @@ namespace Kingdom_Game_Recreation
             {
                 day++;
                 // DAY-SPECIFIC EVENTS
-                /*if (day == )*/
+                if (day == )
+                {
+
+                }
 
                 // Check winning conditions/game conditions
-                if (population == 2000)
+                if (population >= 2000)
                 {
-                    Console.WriteLine("YOU WIN! Your KINGDOM rose to the TOP!");
+                    gameCondition = "W";
+                }
+                else if (population <= 0 || money <= 0 || happiness <= 0)
+                {
+                    gameCondition = "L";
+                }
+                else if (money >= 6000 && population >= 1000)
+                {
                     gameCondition = "W";
                 }
             }
@@ -94,9 +104,9 @@ namespace Kingdom_Game_Recreation
                 else if (input.ToUpper() == "E")
                 {
                     EndDay();
-                    if (gameCondition == "W")
+                    if (gameCondition == "L" || gameCondition == "W")
                     {
-                        isFinished = true;
+                        isFinished = true; // exits loop
                     }
                 }
                 else
@@ -106,6 +116,33 @@ namespace Kingdom_Game_Recreation
             }
 
             // END LOOP
+            if (gameCondition == "W")
+            {
+                Console.WriteLine("** *** YOU WIN! Your KINGDOM rose to the TOP! ** ***");
+                Console.WriteLine("Here are your final status:");
+                Console.WriteLine($"Money: {money}");
+                Console.WriteLine($"Population: {population}");
+                Console.WriteLine($"happiness: {happiness}");
+                Console.WriteLine($"Finished at Day {day}");
+            }
+            else if (gameCondition == "L")
+            {
+                Console.WriteLine("** *** GAME OVER! Better luck next time! Get Good. *** **");
+                Console.WriteLine("Here are your final status:");
+                Console.WriteLine($"Money: {money}");
+                Console.WriteLine($"Population: {population}");
+                Console.WriteLine($"happiness: {happiness}");
+                Console.WriteLine($"Finished at Day {day}");
+            }
+            else if (gameCondition == "W" && money >= 10000 && population >= 500 && happiness >= 500)
+            {
+                Console.WriteLine("You PERFECTED the KINGDOM GAME! What a Chad!");
+                Console.WriteLine("Here are your final status:");
+                Console.WriteLine($"Money: {money}");
+                Console.WriteLine($"Population: {population}");
+                Console.WriteLine($"happiness: {happiness}");
+                Console.WriteLine($"Finished at Day {day}");
+            }
             
         }
     }
