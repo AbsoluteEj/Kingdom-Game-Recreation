@@ -14,18 +14,17 @@ namespace Kingdom_Game_Recreation
             // Get user input (can create method)
             string input = Console.ReadLine();
 
-            // CONDITIONAL FLOW LOGIC
-             if (input.ToUpper() == "A")
-            {
-                HostBanquet();
-            }
-
             // CHOICES or OPTION METHODS
             int money = 100;
             int happiness = 20;
             int population = 20;
             int day = 1;
 
+            void HostBanquet()
+            {
+                money -= 200;
+                happiness += 20;
+            }
             void CreateJobs()
             {
                 money -= 50;
@@ -49,13 +48,15 @@ namespace Kingdom_Game_Recreation
                 // if ()
             }
 
+            // CONDITIONAL FLOW LOGIC
+             if (input.ToUpper() == "A")
+            {
+                HostBanquet();
+
+            }
+
             // DAY-SPECIFIC EVENTS
             /*if (day == )*/
         }
-            private static void HostBanquet()
-            {
-                money -= 200;
-                happiness += 20;
-            }
     }
 }
