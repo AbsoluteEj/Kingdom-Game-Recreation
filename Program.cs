@@ -49,6 +49,7 @@ namespace Kingdom_Game_Recreation
             }
             void EndDay()
             {
+                day++;
                 // DAY-SPECIFIC EVENTS
                 if (day == 7)
                 {
@@ -130,36 +131,37 @@ namespace Kingdom_Game_Recreation
                 Console.WriteLine("E. End Current Day\n");
 
                 // Get user input (can create method)
-                string input = Console.ReadLine();
+                string move = Console.ReadLine();
+                // can add condition that only limits players to move by n times each day
+                // can also add day-specific event where the move of the player is increased by n times 
                 // CONDITIONAL FLOW LOGIC
-                if (input.ToUpper() == "A")
+                if (move.ToUpper() == "A")
                 {
                     HostBanquet();
                 }
-                else if (input.ToUpper() == "B")
+                else if (move.ToUpper() == "B")
                 {
                     CreateJobs();
                 }
-                else if (input.ToUpper() == "C")
+                else if (move.ToUpper() == "C")
                 {
                     HoldFestival();
                 }
-                else if (input.ToUpper() == "D")
+                else if (move.ToUpper() == "D")
                 {
                     CollectTax();
                 }    
-                else if (input.ToUpper() == "E")
+                else if (move.ToUpper() == "E")
                 {
                     EndDay();
                     if (gameCondition == "L" || gameCondition == "W")
                     {
                         isFinished = true; // exits loop
                     }
-                    day++;
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input");
+                    Console.WriteLine("\nInvalid input");
                 }
             }
 
